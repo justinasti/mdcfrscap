@@ -8,12 +8,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Facilities</a>
-      <a class="nav-item nav-link" href="#">Equipment</a>
-
+    
+        <a class="nav-item nav-link active" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#">Facilities</a>
+        <a class="nav-item nav-link" href="#">Equipment</a>
+        <a class="nav-item nav-link" href="" >Calendar</a>
+    
     </div>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -21,7 +22,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto pull-right">
                         
                         <!-- Authentication Links -->
                         @guest

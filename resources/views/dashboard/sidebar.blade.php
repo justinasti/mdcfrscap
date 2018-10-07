@@ -40,13 +40,13 @@
 
                 <li>
 
-                    <a href="">Create</a>
+                    <a href="{{ route('reservations/create') }}">Create</a>
 
                 </li>
 
                 <li>
 
-                    <a href="">View</a>
+                    <a href="{{ route('reservations/view') }}">View</a>
 
                 </li>
 

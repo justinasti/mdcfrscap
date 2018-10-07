@@ -40,7 +40,7 @@ class EquipmentsController extends Controller
     {
         Equipments::create(request(['name', 'description']));
 
-        return redirect('/dashboard');
+        return redirect('/equipments/view');
     }
 
     /**

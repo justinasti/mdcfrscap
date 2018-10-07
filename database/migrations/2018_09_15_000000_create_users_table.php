@@ -21,10 +21,14 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('mobile_number');
             $table->integer('role')->default(100);
-            $table->string('group');
+            $table->integer('group_id')->unsigned();
             $table->integer('is_leader')->default(0);
             $table->rememberToken();
             $table->timestamps();
+
+            $table->index('group_id', 'users_group_id_index');
+
+            $table->foreign('group_id', 'users_group_id_foreign')->references('id')->on('groups');
         });
     }
 
@@ -35,6 +39,11 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('users_group_id_foreign');
+
+            $table->dropIndex('users_group_id_index');
+        });
         Schema::dropIfExists('users');
     }
 }

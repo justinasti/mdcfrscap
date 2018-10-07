@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Reservations;
 use App\Facilities;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
-class FacilitiesController extends Controller
+class ReservationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,9 @@ class FacilitiesController extends Controller
      */
     public function index()
     {
-        $facilities = Facilities::all();      
+        $reservations = Reservations::all();
 
-        return view('facilities.view', compact('facilities'));
+        return view('requests.view', compact('reservations'));
     }
 
     /**
@@ -27,9 +29,13 @@ class FacilitiesController extends Controller
      */
     public function create()
     {
-        $users = User::where('role', 300)->get();
+        $facilities = Facilities::all();
+        $currentUser = app('Illuminate\Contracts\Auth\Guard')->user();
+        $endorsers = User::where('role', 200)->get();
+        $managers = User::where('role', 300)->get();
+        $approves = User::where('role', 400)->get();
 
-        return view('facilities.create', compact('facilities', 'users'));
+        return view('requests.create', compact('reservations', 'facilities', 'currentUser', 'endorsers', 'managers', 'approves'));
     }
 
     /**
@@ -40,9 +46,10 @@ class FacilitiesController extends Controller
      */
     public function store(Request $request)
     {
-        Facilities::create(request(['name', 'description', 'capacity', 'managed_by']));
+        Reservations::create(request(['occasion', 'no_of_participants', 'datetime_start', 'datetime_end', 'facility_id', 
+        'requested_by', 'endorsed_by', 'noted_by', 'approved_by']));
 
-        return redirect('facilities/view');
+        return redirect('/reservations/view');
     }
 
     /**

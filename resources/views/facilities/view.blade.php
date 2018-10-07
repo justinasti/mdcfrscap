@@ -12,6 +12,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Capacity</th>
+                <th>Managed By</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,7 @@
                 <td>{{ $facility->name }}</td>
                 <td>{{ $facility->description }}</td>
                 <td>{{ $facility->capacity }}</td>
+                <td>{{ $facility->managed_by }}</td>
             </tr>
             @endforeach
         </tbody>

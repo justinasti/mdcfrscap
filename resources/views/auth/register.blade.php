@@ -57,7 +57,12 @@
                             <label for="group" class="col-md-4 col-form-label text-md-right">{{ __('Group/Organization') }}</label>
 
                             <div class="col-md-6">
-                                <input id="group" type="text" class="form-control{{ $errors->has('group') ? ' is-invalid' : '' }}" name="group" value="{{ old('group') }}" required>
+                                <select class="form-control{{ $errors->has('group') ? ' is-invalid' : '' }}" name="group_id" >
+                                    <option value=""> </option>
+                                    @foreach($groups as $group)
+                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                    @endforeach
+                                </select>
 
                                 @if ($errors->has('group'))
                                     <span class="invalid-feedback" role="alert">

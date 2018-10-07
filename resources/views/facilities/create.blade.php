@@ -22,6 +22,16 @@
             <label for="capacity">Capacity</label>
             <input type="text" name="capacity" class="form-control" id="name" required>
         </div>
+        <div class="form-group">
+            <label for="managedby">Managed By</label>
+
+            <select name="managed_by" id="managedby">
+                <option value=""> </option>
+                @foreach($users as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>
+                @endforeach 
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Create</button>
         </form>
 

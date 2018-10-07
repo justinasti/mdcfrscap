@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Facilities;
-use App\User;
-
-class FacilitiesController extends Controller
+use App\Users;
+class GroupsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,7 @@ class FacilitiesController extends Controller
      */
     public function index()
     {
-        $facilities = Facilities::all();      
-
-        return view('facilities.view', compact('facilities'));
+        //
     }
 
     /**
@@ -27,9 +23,7 @@ class FacilitiesController extends Controller
      */
     public function create()
     {
-        $users = User::where('role', 300)->get();
-
-        return view('facilities.create', compact('facilities', 'users'));
+        //
     }
 
     /**
@@ -40,9 +34,7 @@ class FacilitiesController extends Controller
      */
     public function store(Request $request)
     {
-        Facilities::create(request(['name', 'description', 'capacity', 'managed_by']));
-
-        return redirect('facilities/view');
+        //
     }
 
     /**

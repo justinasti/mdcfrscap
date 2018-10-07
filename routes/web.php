@@ -31,3 +31,9 @@ Route::get('/facilities/create', 'FacilitiesController@create')->name('facilitie
 Route::post('/facilities', 'FacilitiesController@store');
 
 Route::get('/facilities/view', 'FacilitiesController@index')->name('facilities/view');
+
+Route::get('/reservations/create', 'ReservationsController@create')->name('reservations/create');
+
+Route::post('/reservations', 'ReservationsController@store');
+
+Route::get('/reservations/view', 'ReservationsController@index')->name('reservations/view');
